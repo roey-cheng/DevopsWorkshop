@@ -8,5 +8,6 @@ To test program
 2. run pytest in "./tests"
 
 6 test cases presnt in "./tests/test_solutions.py
-- the first 4 cases suceed while the last 2 fails
-- Edit the "extract sols" function to account for failed cases.
+
+test 3 fails because the matrix has None as an entry, this entry should be 0
+test 4 fails for incorrectly named string

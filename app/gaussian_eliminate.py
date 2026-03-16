@@ -47,8 +47,14 @@ def reduce_row_echelon(row_echelon_matrix: list[list[float]]):
         result.append(row)
     return result[::-1]
 
-# edit this function to account for failed cases
 def extract_sols(rre_mat: list[list[float]]):
+    # check for no-singular solutions
+    last_row = rre_mat[-1]
+    if last_row[-2] == 0:
+        if last_row[-1] == 0:
+            return "rename this string"
+        else:
+            return "no solutions"
     sols = []
     for row in rre_mat:
         sols.append(row[-1])

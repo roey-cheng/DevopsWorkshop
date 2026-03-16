@@ -39,7 +39,7 @@ def print_mat(matrix):
 
         # case 3
         ([
-            [0, 4, 2, 1],
+            [None, 4, 2, 1],
             [2, 3, 5, 0],
             [3, 1, 1, 11],
         ],(4, 3/2, -5/2)
@@ -71,8 +71,10 @@ def test_solutions(augmented_mat, solution):
     print("reduce row echelon form: ")
     print_mat(rre)
     results = extract_sols(rre)
-    for res, sol in zip(results, solution):
-        if isinstance(res, float):
+    if isinstance(results, tuple):
+        for res, sol in zip(results, solution):
             res = round(res, 5)
-        assert res == sol
+            assert res == sol
+    elif isinstance(results, str):
+        assert results == solution
 
